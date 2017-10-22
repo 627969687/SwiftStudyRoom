@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>project</key>
+		<string>Project 01 - TipCalculator</string>
+	</dict>
+	<dict>
+		<key>project</key>
+		<string>Project 02 - NameList</string>
+	</dict>
+	<dict>
+		<key>project</key>
+		<string>Project 03 - StopWatch</string>
+	</dict>
+	<dict>
+		<key>project</key>
+		<string>Project 04 - CountryList</string>
+	</dict>
+</array>
+</plist>
