@@ -1,8 +1,8 @@
 //
-//  SwiftHomework.swift
-//  SwiftHomework
+//  FirstWeek.swift
+//  FirstWeek
 //
-//  Created by 荣 Jason on 2017/10/15.
+//  Created by 荣 Jason on 2017/10/22.
 //  Copyright © 2017年 荣 Jason. All rights reserved.
 //
 
