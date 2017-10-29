@@ -28,10 +28,20 @@ extension Demo2Controller {
     fileprivate func loadData() {
         guard let plistPath = Bundle.main.path(forResource: "todolist.plist", ofType: nil) else {return}
         guard let dataArr = NSArray(contentsOfFile: plistPath) else {return}
-        for data in dataArr {
+
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last
+        let resultPlist = documentPath!+"/todolist.plist"
+        if !FileManager.default.fileExists(atPath: resultPlist) {
+            dataArr.write(toFile: resultPlist, atomically: true)
+        }
+        
+        guard let result = NSArray(contentsOfFile: resultPlist) else {return}
+        
+        for data in result {
             datas.append(TodolistModel(dict: data as! [String : Any]))
         }
     }
+    
 }
 
 // MARK: - UI

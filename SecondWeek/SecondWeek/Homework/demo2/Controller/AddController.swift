@@ -18,15 +18,19 @@ class AddController: UIViewController {
     
     var sel = "talk"
     
-    lazy var datas: [[String:Any]] = {
-        guard let plistPath = Bundle.main.path(forResource: "todolist.plist", ofType: nil) else {return []}
-        guard let dataArr = NSArray(contentsOfFile: plistPath) else {return []}
-        return dataArr as! [[String : Any]]
-    }()
+//    lazy var datas: [[String:Any]] = {
+//        guard let plistPath = Bundle.main.path(forResource: "todolist.plist", ofType: nil) else {return []}
+//        guard let dataArr = NSArray(contentsOfFile: plistPath) else {return []}
+//        return dataArr as! [[String : Any]]
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
@@ -73,12 +77,13 @@ extension AddController {
     fileprivate func change() {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
-        
         let result:[String:Any] = ["info":ToDoTF.text!,
                       "date":dateFormat.string(from: datePicker.date),
                       "icon":sel]
-        datas.append(result)
-        let resultArr = datas as NSArray
-        resultArr.write(toFile: Bundle.main.bundlePath+"/todolist.plist", atomically: true)
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last
+        let resultPlist = documentPath!+"/todolist.plist"
+        guard let datas = NSMutableArray(contentsOfFile: resultPlist) else {return}
+        datas.add(result)
+        datas.write(toFile: resultPlist, atomically: true)
     }
 }

@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qP5-8J-cMo">
-                    <rect key="frame" x="57" y="70" width="260" height="50"/>
+                    <rect key="frame" x="57" y="50" width="260" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sk-ZJ-5Od">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -76,26 +76,26 @@
                     </constraints>
                 </stackView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fw8-uX-hoK">
-                    <rect key="frame" x="148.5" y="165.5" width="168.5" height="30"/>
+                    <rect key="frame" x="148.5" y="125.5" width="168.5" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-D2-LWx">
-                    <rect key="frame" x="57" y="245.5" width="260" height="216"/>
+                    <rect key="frame" x="57" y="185.5" width="260" height="216"/>
                     <date key="date" timeIntervalSinceReferenceDate="530956966.49405497">
                         <!--2017-10-29 08:02:46 +0000-->
                     </date>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-7h-AUX">
-                    <rect key="frame" x="169.5" y="511.5" width="37" height="30"/>
+                    <rect key="frame" x="169.5" y="431.5" width="37" height="30"/>
                     <state key="normal" title="Done"/>
                     <connections>
                         <action selector="doneClick:" destination="-1" eventType="touchUpInside" id="y1u-Y5-GD5"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZn-Eg-d1Q">
-                    <rect key="frame" x="57" y="170" width="86.5" height="20.5"/>
+                    <rect key="frame" x="57" y="130" width="86.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -103,16 +103,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="AZn-Eg-d1Q" firstAttribute="top" secondItem="qP5-8J-cMo" secondAttribute="bottom" constant="50" id="0VQ-H0-i3J"/>
+                <constraint firstItem="AZn-Eg-d1Q" firstAttribute="top" secondItem="qP5-8J-cMo" secondAttribute="bottom" constant="30" id="0VQ-H0-i3J"/>
                 <constraint firstItem="fw8-uX-hoK" firstAttribute="leading" secondItem="AZn-Eg-d1Q" secondAttribute="trailing" constant="5" id="6Xs-NY-WcP"/>
-                <constraint firstItem="ceN-D2-LWx" firstAttribute="top" secondItem="fw8-uX-hoK" secondAttribute="bottom" constant="50" id="DzZ-TC-dOu"/>
-                <constraint firstItem="Um3-7h-AUX" firstAttribute="top" secondItem="ceN-D2-LWx" secondAttribute="bottom" constant="50" id="Esn-qe-12V"/>
+                <constraint firstItem="ceN-D2-LWx" firstAttribute="top" secondItem="fw8-uX-hoK" secondAttribute="bottom" constant="30" id="DzZ-TC-dOu"/>
+                <constraint firstItem="Um3-7h-AUX" firstAttribute="top" secondItem="ceN-D2-LWx" secondAttribute="bottom" constant="30" id="Esn-qe-12V"/>
                 <constraint firstItem="qP5-8J-cMo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NSp-1Z-jp9"/>
                 <constraint firstItem="fw8-uX-hoK" firstAttribute="centerY" secondItem="AZn-Eg-d1Q" secondAttribute="centerY" id="SCb-N2-eIC"/>
                 <constraint firstItem="Um3-7h-AUX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e2w-Gx-8PW"/>
                 <constraint firstItem="ceN-D2-LWx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gHk-XH-cow"/>
                 <constraint firstItem="AZn-Eg-d1Q" firstAttribute="leading" secondItem="qP5-8J-cMo" secondAttribute="leading" id="hPA-ud-DXV"/>
-                <constraint firstItem="qP5-8J-cMo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="jfp-7u-qA7"/>
+                <constraint firstItem="qP5-8J-cMo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="jfp-7u-qA7"/>
                 <constraint firstItem="fw8-uX-hoK" firstAttribute="trailing" secondItem="qP5-8J-cMo" secondAttribute="trailing" id="n2H-e5-Vze"/>
                 <constraint firstItem="ceN-D2-LWx" firstAttribute="width" secondItem="qP5-8J-cMo" secondAttribute="width" id="pex-7d-n42"/>
             </constraints>
