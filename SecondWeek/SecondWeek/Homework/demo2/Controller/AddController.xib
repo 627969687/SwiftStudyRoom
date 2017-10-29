@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddController" customModule="SecondWeek" customModuleProvider="target">
+            <connections>
+                <outlet property="ToDoTF" destination="fw8-uX-hoK" id="JvX-2l-XMN"/>
+                <outlet property="airBtn" destination="z6R-tY-1it" id="5WM-zp-UkF"/>
+                <outlet property="datePicker" destination="ceN-D2-LWx" id="LhL-vN-fG8"/>
+                <outlet property="phoneBtn" destination="Buy-Ti-1He" id="KaU-Ss-wn3"/>
+                <outlet property="shopBtn" destination="bBH-NZ-hSu" id="M7U-u9-nKZ"/>
+                <outlet property="talkBtn" destination="1Sk-ZJ-5Od" id="bZz-Ld-a2J"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qP5-8J-cMo">
+                    <rect key="frame" x="57" y="70" width="260" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sk-ZJ-5Od">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="62K-Fd-fbS"/>
+                                <constraint firstAttribute="width" constant="50" id="75L-TW-tqb"/>
+                            </constraints>
+                            <state key="normal" image="talk_de.png"/>
+                            <state key="selected" image="talk.png"/>
+                            <connections>
+                                <action selector="talkClick:" destination="-1" eventType="touchUpInside" id="Tm9-mA-BOm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buy-Ti-1He">
+                            <rect key="frame" x="70" y="0.0" width="50" height="50"/>
+                            <state key="normal" image="phone_de.png"/>
+                            <state key="selected" image="phone.png"/>
+                            <connections>
+                                <action selector="phoneClick:" destination="-1" eventType="touchUpInside" id="pyF-JL-0pk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-NZ-hSu">
+                            <rect key="frame" x="140" y="0.0" width="50" height="50"/>
+                            <state key="normal" image="shop_de.png"/>
+                            <state key="selected" image="shop.png"/>
+                            <connections>
+                                <action selector="shopClick:" destination="-1" eventType="touchUpInside" id="yF0-jf-L7b"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6R-tY-1it">
+                            <rect key="frame" x="210" y="0.0" width="50" height="50"/>
+                            <state key="normal" image="air_de.png"/>
+                            <state key="selected" image="air.png"/>
+                            <connections>
+                                <action selector="airClick:" destination="-1" eventType="touchUpInside" id="Q5v-Oo-Dzg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="bBH-NZ-hSu" firstAttribute="leading" secondItem="1Sk-ZJ-5Od" secondAttribute="trailing" constant="90" id="2Ip-Ei-g2x"/>
+                        <constraint firstItem="bBH-NZ-hSu" firstAttribute="height" secondItem="1Sk-ZJ-5Od" secondAttribute="height" id="Fqk-90-w3M"/>
+                        <constraint firstItem="Buy-Ti-1He" firstAttribute="height" secondItem="1Sk-ZJ-5Od" secondAttribute="height" id="TYG-Oe-HLg"/>
+                        <constraint firstItem="bBH-NZ-hSu" firstAttribute="width" secondItem="1Sk-ZJ-5Od" secondAttribute="width" id="Xbs-ai-ZwQ"/>
+                        <constraint firstItem="Buy-Ti-1He" firstAttribute="width" secondItem="1Sk-ZJ-5Od" secondAttribute="width" id="lIn-5e-kKf"/>
+                        <constraint firstItem="z6R-tY-1it" firstAttribute="width" secondItem="1Sk-ZJ-5Od" secondAttribute="width" id="lNV-bI-FNq"/>
+                        <constraint firstItem="z6R-tY-1it" firstAttribute="height" secondItem="1Sk-ZJ-5Od" secondAttribute="height" id="qlz-J3-ghy"/>
+                    </constraints>
+                </stackView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fw8-uX-hoK">
+                    <rect key="frame" x="148.5" y="165.5" width="168.5" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-D2-LWx">
+                    <rect key="frame" x="57" y="226" width="260" height="216"/>
+                    <date key="date" timeIntervalSinceReferenceDate="530956966.49405497">
+                        <!--2017-10-29 08:02:46 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-7h-AUX">
+                    <rect key="frame" x="169.5" y="492" width="37" height="30"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="doneClick:" destination="-1" eventType="touchUpInside" id="y1u-Y5-GD5"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZn-Eg-d1Q">
+                    <rect key="frame" x="57" y="170" width="86.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AZn-Eg-d1Q" firstAttribute="top" secondItem="qP5-8J-cMo" secondAttribute="bottom" constant="50" id="0VQ-H0-i3J"/>
+                <constraint firstItem="fw8-uX-hoK" firstAttribute="leading" secondItem="AZn-Eg-d1Q" secondAttribute="trailing" constant="5" id="6Xs-NY-WcP"/>
+                <constraint firstItem="Um3-7h-AUX" firstAttribute="top" secondItem="ceN-D2-LWx" secondAttribute="bottom" constant="50" id="Esn-qe-12V"/>
+                <constraint firstItem="ceN-D2-LWx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Faq-t5-V9t"/>
+                <constraint firstItem="qP5-8J-cMo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NSp-1Z-jp9"/>
+                <constraint firstItem="fw8-uX-hoK" firstAttribute="centerY" secondItem="AZn-Eg-d1Q" secondAttribute="centerY" id="SCb-N2-eIC"/>
+                <constraint firstItem="Um3-7h-AUX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e2w-Gx-8PW"/>
+                <constraint firstItem="ceN-D2-LWx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gHk-XH-cow"/>
+                <constraint firstItem="AZn-Eg-d1Q" firstAttribute="leading" secondItem="qP5-8J-cMo" secondAttribute="leading" id="hPA-ud-DXV"/>
+                <constraint firstItem="qP5-8J-cMo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="jfp-7u-qA7"/>
+                <constraint firstItem="fw8-uX-hoK" firstAttribute="trailing" secondItem="qP5-8J-cMo" secondAttribute="trailing" id="n2H-e5-Vze"/>
+                <constraint firstItem="ceN-D2-LWx" firstAttribute="width" secondItem="qP5-8J-cMo" secondAttribute="width" id="pex-7d-n42"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="air.png" width="64" height="64"/>
+        <image name="air_de.png" width="64" height="64"/>
+        <image name="phone.png" width="64" height="64"/>
+        <image name="phone_de.png" width="64" height="64"/>
+        <image name="shop.png" width="64" height="64"/>
+        <image name="shop_de.png" width="64" height="64"/>
+        <image name="talk.png" width="64" height="64"/>
+        <image name="talk_de.png" width="64" height="64"/>
+    </resources>
+</document>

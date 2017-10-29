@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>info</key>
+		<string>go to disney</string>
+		<key>date</key>
+		<string>2014-10-20</string>
+		<key>icon</key>
+		<string>talk</string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>cicso shopping</string>
+		<key>date</key>
+		<string>2014-10-28</string>
+		<key>icon</key>
+		<string>shop</string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>phone to jobs</string>
+		<key>date</key>
+		<string>2014-10-30</string>
+		<key>icon</key>
+		<string>phone</string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>plan to europe</string>
+		<key>date</key>
+		<string>2014-10-31</string>
+		<key>icon</key>
+		<string>air</string>
+	</dict>
+</array>
+</plist>
