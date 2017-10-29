@@ -82,13 +82,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-D2-LWx">
-                    <rect key="frame" x="57" y="226" width="260" height="216"/>
+                    <rect key="frame" x="57" y="245.5" width="260" height="216"/>
                     <date key="date" timeIntervalSinceReferenceDate="530956966.49405497">
                         <!--2017-10-29 08:02:46 +0000-->
                     </date>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-7h-AUX">
-                    <rect key="frame" x="169.5" y="492" width="37" height="30"/>
+                    <rect key="frame" x="169.5" y="511.5" width="37" height="30"/>
                     <state key="normal" title="Done"/>
                     <connections>
                         <action selector="doneClick:" destination="-1" eventType="touchUpInside" id="y1u-Y5-GD5"/>
@@ -105,8 +105,8 @@
             <constraints>
                 <constraint firstItem="AZn-Eg-d1Q" firstAttribute="top" secondItem="qP5-8J-cMo" secondAttribute="bottom" constant="50" id="0VQ-H0-i3J"/>
                 <constraint firstItem="fw8-uX-hoK" firstAttribute="leading" secondItem="AZn-Eg-d1Q" secondAttribute="trailing" constant="5" id="6Xs-NY-WcP"/>
+                <constraint firstItem="ceN-D2-LWx" firstAttribute="top" secondItem="fw8-uX-hoK" secondAttribute="bottom" constant="50" id="DzZ-TC-dOu"/>
                 <constraint firstItem="Um3-7h-AUX" firstAttribute="top" secondItem="ceN-D2-LWx" secondAttribute="bottom" constant="50" id="Esn-qe-12V"/>
-                <constraint firstItem="ceN-D2-LWx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Faq-t5-V9t"/>
                 <constraint firstItem="qP5-8J-cMo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NSp-1Z-jp9"/>
                 <constraint firstItem="fw8-uX-hoK" firstAttribute="centerY" secondItem="AZn-Eg-d1Q" secondAttribute="centerY" id="SCb-N2-eIC"/>
                 <constraint firstItem="Um3-7h-AUX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e2w-Gx-8PW"/>
