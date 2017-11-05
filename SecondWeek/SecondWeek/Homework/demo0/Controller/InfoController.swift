@@ -49,7 +49,7 @@ extension InfoController {
             info = data.Name
             break
         case 1:
-            info = data.Mobile.mobileFormat()
+            info = data.Mobile.mobileFormat(4)
             break
         case 2:
             info = data.Email
@@ -76,7 +76,7 @@ extension InfoController {
             break
         case 1:
             cell.nameLabel.text = "Mobile"
-            cell.infoLabel.text = data.Mobile.mobileFormat()
+            cell.infoLabel.text = data.Mobile.mobileFormat(4)
             break
         case 2:
             cell.nameLabel.text = "Email"

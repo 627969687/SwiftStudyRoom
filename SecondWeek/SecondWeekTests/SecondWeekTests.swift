@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import FirstWeek
+@testable import SecondWeek
 
-class FirstWeekTests: XCTestCase {
+class SecondWeekTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
