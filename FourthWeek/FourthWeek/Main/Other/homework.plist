@@ -4,23 +4,19 @@
 <array>
 	<dict>
 		<key>project</key>
-		<string>Project 01 - collection横向排列</string>
+		<string>Project 01 - 时钟</string>
 	</dict>
 	<dict>
 		<key>project</key>
-		<string>Project 02 - CollectionTest</string>
+		<string>Project 02 - 笑脸</string>
 	</dict>
 	<dict>
 		<key>project</key>
-		<string>Project 03 - 瀑布流</string>
+		<string>Project 03 -心跳</string>
 	</dict>
 	<dict>
 		<key>project</key>
-		<string>Project 04 - 联动</string>
-	</dict>
-	<dict>
-		<key>project</key>
-		<string>Project 04 - Pokemon</string>
+		<string>Project 04 - Twitter</string>
 	</dict>
 </array>
 </plist>

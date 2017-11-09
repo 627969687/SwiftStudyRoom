@@ -10,6 +10,16 @@ import UIKit
 
 // MARK: - frame
 extension UIView {
+    func setOrigin(_ origin:CGPoint) {
+        var frame = self.frame
+        frame.origin = origin
+        self.frame = frame
+    }
+    
+    func origin() -> CGPoint {
+        return self.frame.origin
+    }
+        
     func setX(x:CGFloat) {
         var frame = self.frame
         frame.origin.x = x

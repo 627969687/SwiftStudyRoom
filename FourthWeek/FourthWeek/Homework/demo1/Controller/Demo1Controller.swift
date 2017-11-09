@@ -8,27 +8,33 @@
 
 import UIKit
 
-fileprivate let ID = "cell"
-class Demo1Controller: UICollectionViewController {
+class Demo1Controller: UIViewController {
+    @IBOutlet weak var leftEyeV: UIView!
+    @IBOutlet weak var rightEyeV: UIView!
+    @IBOutlet weak var mouthV: UIView!
+    @IBOutlet weak var msgLabel: UILabel!
+    
+    fileprivate var originMouthFrame: CGRect!
+    fileprivate var originRightFrame: CGRect!
+    fileprivate var originLeftFrame: CGRect!
+    fileprivate var isAnimate = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    init() {
-        let margin:CGFloat = 10
-        let itemWH:CGFloat = (screenW - 3 * margin) / 2
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: itemWH, height: itemWH)
-        flowLayout.minimumInteritemSpacing = margin
-        flowLayout.minimumLineSpacing = margin
-        flowLayout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin)
-        super.init(collectionViewLayout: flowLayout)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        originMouthFrame = mouthV.frame
+        originLeftFrame = leftEyeV.frame
+        originRightFrame = rightEyeV.frame
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        isAnimate = true
+        setupAnimation()
     }
 }
 
@@ -36,22 +42,47 @@ class Demo1Controller: UICollectionViewController {
 extension Demo1Controller {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
-        collectionView?.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: ID)
     }
 }
 
 extension Demo1Controller {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ID, for: indexPath) as! ImageCell
-        cell.imageView.image = UIImage(named: String(format: "test%d.jpg", indexPath.row+1))
-        return cell
+    @IBAction func clean() {
+        msgLabel.isHidden = true
+        mouthV.frame = originMouthFrame
+        leftEyeV.frame = originLeftFrame
+        rightEyeV.frame = originRightFrame
     }
 }
 
+extension Demo1Controller {
+    fileprivate func setupAnimation() {
+        if isAnimate {
+            clean()
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.35, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
+            self.eyeAnimation()
+            self.mouthAnimation()
+            self.view.layoutIfNeeded()
+        }) { (result) in
+            self.msgLabel.isHidden = false
+        }
+        
+    }
+    
+    fileprivate func eyeAnimation() {
+        leftEyeV.setX(x: view.width() - leftEyeV.maxX())
+        leftEyeV.setY(y: leftEyeV.y() + 50)
+        
+        rightEyeV.setX(x: view.width() - rightEyeV.maxX())
+        rightEyeV.setY(y: rightEyeV.y() + 50)
+    }
+    
+    fileprivate func mouthAnimation() {
+        mouthV.setHeight(height: mouthV.height() * 5)
+        mouthV.setY(y: mouthV.y() + 100)
+    }
+}
 
 
 

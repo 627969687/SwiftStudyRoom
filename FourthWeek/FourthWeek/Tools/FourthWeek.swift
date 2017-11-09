@@ -10,3 +10,7 @@ import UIKit
 
 let screenW = UIScreen.main.bounds.size.width
 let screenH = UIScreen.main.bounds.size.height
+
+func angleToRadian(_ angle:CGFloat) -> CGFloat {
+    return angle * .pi / 180
+}

@@ -8,28 +8,50 @@
 
 import UIKit
 
-class Demo4Controller: UIViewController {
+fileprivate let ID = "cell"
+class Demo4Controller: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    init() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: screenW * 0.5, height: screenW * 0.5)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        super.init(collectionViewLayout: flowLayout)
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
+extension Demo4Controller {
+    fileprivate func setupUI() {
+        collectionView?.register(UINib(nibName: "TransitionCell", bundle: nil), forCellWithReuseIdentifier: ID)
+    }
+}
+
+extension Demo4Controller {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ID, for: indexPath) as! TransitionCell
+        cell.imageView.image = UIImage(named: String(format: "transition%d.jpg", indexPath.item + 1))
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(indexPath.item)
+        let control = TransitionController()
+        control.image = UIImage(named: String(format: "transition%d.jpg", indexPath.item + 1))!
+        navigationController?.pushViewController(control, animated: true)
+    }
+}
+

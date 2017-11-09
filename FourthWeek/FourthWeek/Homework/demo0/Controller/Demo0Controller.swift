@@ -6,83 +6,123 @@
 //  Copyright © 2017年 荣 Jason. All rights reserved.
 //
 
-// 一页8个，间距为10
-// 顺序为从左至右排列
 
 import UIKit
 
-fileprivate let ID = "cell"
+// 每秒旋转角度 360/6
+fileprivate let perSecondAngle:CGFloat = 6
+// 每分旋转角度 360/6
+fileprivate let perMinuteAngle:CGFloat = 6
+// 每时旋转角度 360/12
+fileprivate let perHourAngle:CGFloat = 30
+// 每分钟小时旋转角度 30/60
+fileprivate let perMinuteHourAngle:CGFloat = 0.5
+
 class Demo0Controller: UIViewController {
-    let itemCount = 11
-    
-    lazy var pageControl: UIPageControl = {
-        let temp = UIPageControl()
-        temp.currentPageIndicatorTintColor = UIColor.green
-        temp.pageIndicatorTintColor = UIColor.red
-        temp.sizeToFit()
-        return temp
-    }()
+    fileprivate var clockView:UIImageView!
+    fileprivate var secondHand:CALayer!
+    fileprivate var minuteHand:CALayer!
+    fileprivate var hourHand:CALayer!
+    fileprivate var timer:Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        timeChange()
+        setupEvent()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
     }
 }
 
 extension Demo0Controller {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
-        
-        let cols = 4
-        let rows = 2
-        let margin:CGFloat = 10
-        let itemWH = (screenW - (CGFloat(cols)+1) * margin) / CGFloat(cols)
-        
-        // collection尺寸
-        let width = screenW
-        let height = itemWH * CGFloat(rows) + margin * (CGFloat(rows)+1)
-        
-        let flowLayout = HorizontalLayout()
-        flowLayout.itemSize = CGSize(width: itemWH, height: itemWH)
-        flowLayout.minimumInteritemSpacing = margin
-        flowLayout.minimumLineSpacing = margin
-        flowLayout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin)
-        
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 150, width: width, height: height), collectionViewLayout: flowLayout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.green
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isPagingEnabled = true
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: ID)
-        
-        
-        pageControl.numberOfPages = (itemCount-1) / (cols*rows) + 1
-        pageControl.setY(y: collectionView.maxY() + 8)
-        pageControl.setCenterX(centerX: screenW * 0.5)
-        
-        view.addSubview(collectionView)
-        view.addSubview(pageControl)
+        setupClock()
+        setupSecondHand()
+        setupMinuteHand()
+        setupHourHand()
+    }
+    
+    fileprivate func setupClock() {
+        let clock = UIImageView()
+        clock.image = #imageLiteral(resourceName: "clock")
+        clock.sizeToFit()
+        clock.center = view.center
+        view.addSubview(clock)
+        clockView = clock
+    }
+    
+    fileprivate func setupSecondHand() {
+        let second = CALayer()
+        second.bounds = CGRect(origin: CGPoint.zero, size: CGSize(width: 2, height: clockView.height() * 0.5 - 20))
+        second.backgroundColor = UIColor.red.cgColor
+        second.position = CGPoint(x: clockView.width() * 0.5, y: clockView.height() * 0.5)
+        second.anchorPoint = CGPoint(x: 0.5, y: 1)
+        clockView.layer.addSublayer(second)
+        secondHand = second
+    }
+    
+    fileprivate func setupMinuteHand() {
+        let minute = CALayer()
+        minute.bounds = CGRect(origin: CGPoint.zero, size: CGSize(width: 4, height: clockView.height() * 0.5 - 25))
+        minute.backgroundColor = UIColor.black.cgColor
+        minute.position = CGPoint(x: clockView.width() * 0.5, y: clockView.height() * 0.5)
+        minute.anchorPoint = CGPoint(x: 0.5, y: 1)
+        clockView.layer.addSublayer(minute)
+        minuteHand = minute
+    }
+    
+    fileprivate func setupHourHand() {
+        let hour = CALayer()
+        hour.bounds = CGRect(origin: CGPoint.zero, size: CGSize(width: 8, height: clockView.height() * 0.5 - 35))
+        hour.backgroundColor = UIColor.black.cgColor
+        hour.position = CGPoint(x: clockView.width() * 0.5, y: clockView.height() * 0.5)
+        hour.anchorPoint = CGPoint(x: 0.5, y: 1)
+        clockView.layer.addSublayer(hour)
+        hourHand = hour
     }
 }
 
-extension Demo0Controller:UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
+extension Demo0Controller {
+    fileprivate func setupEvent() {
+        setupTimer()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ID, for: indexPath) as! CollectionViewCell
-        cell.label.text = String(format: "%d", indexPath.row)
-        return cell
+    fileprivate func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timeChange), userInfo: nil, repeats: true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageNum = Int((scrollView.contentOffset.x / scrollView.width()) + CGFloat(0.5))
-        pageControl.currentPage = pageNum
+    @objc fileprivate func timeChange() {
+        let calendar = Calendar.current
+        let dateComponent = calendar.dateComponents([.hour,.minute,.second], from: Date())
+        guard let second = dateComponent.second else { return }
+        guard let minute = dateComponent.minute else { return }
+        guard let hour = dateComponent.hour else { return }
+        print(String(format: "%d:%d:%d", dateComponent.hour!,dateComponent.minute!,dateComponent.second!))
+        
+        // 秒
+        let secondAngle = perSecondAngle * CGFloat(second)
+        secondHand.transform = CATransform3DMakeRotation(angleToRadian(secondAngle), 0, 0, 1)
+        // 分
+        let minuteAngle = perMinuteAngle * CGFloat(minute)
+        minuteHand.transform = CATransform3DMakeRotation(angleToRadian(minuteAngle), 0, 0, 1)
+        // 时
+        let hourAngle = perHourAngle * CGFloat(hour) + perMinuteHourAngle * CGFloat(minute)
+        hourHand.transform = CATransform3DMakeRotation(angleToRadian(hourAngle), 0, 0, 1)
     }
 }
+
+
+
+
+
 
 
 

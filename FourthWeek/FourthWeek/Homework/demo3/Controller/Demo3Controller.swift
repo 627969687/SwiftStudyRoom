@@ -8,95 +8,73 @@
 
 import UIKit
 
-fileprivate let menuID = "menu"
-fileprivate let contentID = "content"
-
 class Demo3Controller: UIViewController {
-    @IBOutlet weak var menuView: UITableView!
-    @IBOutlet weak var contentView: UICollectionView!
+    let contentV = UIImageView(image: #imageLiteral(resourceName: "twitter"))
     
-    lazy var menuData: [SeafoodModel] = {
-        guard let plistPath = Bundle.main.path(forResource: "Seafood.plist", ofType: nil) else {return []}
-        guard let dataArr = NSArray(contentsOfFile: plistPath) else {return []}
-        var temp = [SeafoodModel]()
-        for data in dataArr {
-            temp.append(SeafoodModel(dict: data as! [String : Any]))
-        }
+    // 遮罩
+    lazy var maskLayer: CALayer = {
+        let temp = CALayer()
+        temp.contents = #imageLiteral(resourceName: "twitter logo mask").cgImage
         return temp
     }()
-    
-//    lazy var contentData: [ContentModel] = {
-//        var temp = [ContentModel]()
-//        for data in menuData[0].info {
-//            temp.append(ContentModel(dict: data))
-//        }
-//        return temp
-//    }()
-    var contentData = [ContentModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupAnimate()
     }
 }
 
 extension Demo3Controller {
     fileprivate func setupUI() {
-        setupMenu()
-        setupContent()
-    }
-    
-    fileprivate func setupMenu() {
-        menuView.tableFooterView = UIView()
-        menuView.register(UITableViewCell.self, forCellReuseIdentifier: menuID)
+        view.backgroundColor = UIColor.rgbColor(r: 76, g: 157, b: 232)
+        contentV.frame = view.bounds
+        view.addSubview(contentV)
         
-        menuView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
-        self.tableView(menuView, didSelectRowAt: IndexPath(row: 0, section: 0))
-
+        setupMask()
     }
     
-    fileprivate func setupContent() {
-        contentView.register(UINib(nibName: "SeafoodCell", bundle: nil), forCellWithReuseIdentifier: contentID)
+    // 设置遮罩
+    fileprivate func setupMask() {
+        maskLayer.position = view.center
+        maskLayer.bounds = CGRect(x: 0, y: 0, width: 120, height: 93)
+        contentV.layer.mask = maskLayer
     }
 }
 
-// MARK: - tablview delegate datasource
-extension Demo3Controller:UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: menuID)
-        cell?.textLabel?.text = menuData[indexPath.row].title
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        contentData.removeAll()
-        for data in menuData[indexPath.row].info {
-            contentData.append(ContentModel(dict: data))
-        }
-        contentView.reloadData()
-    }
-}
-
-// MARK: - collection delegate datasource
-extension Demo3Controller:UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentID, for: indexPath) as! SeafoodCell
-        cell.imageView.image = #imageLiteral(resourceName: "bolong.jpg")
-        cell.label.text = contentData[indexPath.row].name
-        return cell
+// MARK: - 帧动画
+extension Demo3Controller {
+    fileprivate func setupAnimate() {
+        let startScale:CGFloat = 0.5
+        let endScale:CGFloat = view.height() / maskLayer.bounds.height > view.width() / maskLayer.bounds.width ? view.height() / maskLayer.bounds.height * 3 : view.width() / maskLayer.bounds.width * 3
+        let startSize = CGSize(width: maskLayer.bounds.width * startScale, height: maskLayer.bounds.height * startScale)
+        let endSize = CGSize(width: maskLayer.bounds.width * endScale, height: maskLayer.bounds.height * endScale)
+        
+        let animate = CAKeyframeAnimation(keyPath: "bounds")
+        animate.delegate = self
+        animate.duration = 2
+        // CACurrentMediaTime是手机从开机一直到当前所经过的秒数
+        animate.beginTime = CACurrentMediaTime() + 0.5
+        
+        let begin = contentV.layer.mask!.bounds
+        let middle = CGRect(origin: CGPoint.zero, size: startSize)
+        let end = CGRect(origin: CGPoint.zero, size: endSize)
+        
+        animate.values = [begin,middle,end]
+        // 动画时间节点
+        animate.keyTimes = [0,0.2,1]
+        // 动画动几次就设置几个时间函数
+        animate.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut),CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)]
+        animate.isRemovedOnCompletion = false
+        animate.fillMode = kCAFillModeForwards
+        contentV.layer.mask?.add(animate, forKey: nil)
     }
 }
 
-
-
-
+extension Demo3Controller:CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("动画结束")
+    }
+}
 
 
