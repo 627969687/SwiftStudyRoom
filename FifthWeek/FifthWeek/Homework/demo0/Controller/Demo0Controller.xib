@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Demo0Controller" customModule="FifthWeek" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="KGI-t2-f7S" id="mdf-Yg-l38"/>
+                <outlet property="percentLabel" destination="qUp-6k-WJr" id="t3z-Vs-QFg"/>
+                <outlet property="valueTF" destination="77U-IO-KyS" id="EXv-6h-JYI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ueN-MP-pAc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-JL-Hct">
+                    <rect key="frame" x="62.5" y="167" width="250" height="334.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGI-t2-f7S" customClass="BGView" customModule="FifthWeek" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-6k-WJr">
+                                    <rect key="frame" x="88.5" y="106.5" width="73" height="38.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已使用流量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-bn-YhX">
+                                    <rect key="frame" x="92" y="155" width="66.5" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="qUp-6k-WJr" firstAttribute="centerY" secondItem="KGI-t2-f7S" secondAttribute="centerY" id="2b7-wK-VXu"/>
+                                <constraint firstItem="qUp-6k-WJr" firstAttribute="centerX" secondItem="KGI-t2-f7S" secondAttribute="centerX" id="CyD-9k-nyb"/>
+                                <constraint firstItem="phg-bn-YhX" firstAttribute="top" secondItem="qUp-6k-WJr" secondAttribute="bottom" constant="10" id="PEQ-2Y-0Ta"/>
+                                <constraint firstAttribute="width" constant="250" id="gFm-Iq-EQc"/>
+                                <constraint firstAttribute="height" constant="250" id="iv3-oi-PF3"/>
+                                <constraint firstItem="phg-bn-YhX" firstAttribute="centerX" secondItem="KGI-t2-f7S" secondAttribute="centerX" id="uxB-0b-Kmz"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入已经使用的流量百分比（范围0~100）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGr-sV-422">
+                            <rect key="frame" x="0.0" y="270" width="244.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.60561042750000005" green="0.60561042750000005" blue="0.60561042750000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="bDH-6U-7JI">
+                            <rect key="frame" x="0.0" y="304.5" width="249" height="30"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="77U-IO-KyS">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="a9V-oq-Fli"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJQ-dq-eqj">
+                                    <rect key="frame" x="180" y="0.0" width="69" height="30"/>
+                                    <state key="normal" title="Animation"/>
+                                    <connections>
+                                        <action selector="animClick" destination="-1" eventType="touchUpInside" id="A9h-Ng-nV8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vvZ-JL-Hct" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f1F-Ya-inH"/>
+                <constraint firstItem="vvZ-JL-Hct" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sG9-wm-Syh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
