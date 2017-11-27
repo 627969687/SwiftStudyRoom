@@ -42,10 +42,12 @@
 		8E49F2421FADAA6B00C0723D /* Seafood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E49F2411FADAA6B00C0723D /* Seafood.plist */; };
 		8E49F2441FADACE300C0723D /* SeafoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F2431FADACE300C0723D /* SeafoodModel.swift */; };
 		8E49F2461FADB37200C0723D /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F2451FADB37200C0723D /* ContentModel.swift */; };
+		8E5358AD1FC01E65009B94F5 /* UIDevice-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5358AC1FC01E65009B94F5 /* UIDevice-extension.swift */; };
 		8E605E511FAF0F7A002B8820 /* fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E605E501FAF0F7A002B8820 /* fall.plist */; };
 		8E605E531FAF1125002B8820 /* FallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E605E521FAF1125002B8820 /* FallModel.swift */; };
 		8E8B0FE01FAB1B150099AE0F /* HorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8B0FDF1FAB1B150099AE0F /* HorizontalLayout.swift */; };
 		8EACBFE01FA57ED10095797A /* String-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EACBFDF1FA57ED10095797A /* String-extension.swift */; };
+		8EC0108B1FBFCCF000732CD9 /* PushAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0108A1FBFCCF000732CD9 /* PushAnim.swift */; };
 		8EC63C6F1F94D53400B52CBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC63C6D1F94D53400B52CBC /* Main.storyboard */; };
 		8EC63C711F94D53400B52CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC63C701F94D53400B52CBC /* Assets.xcassets */; };
 		8EC63C741F94D53400B52CBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC63C721F94D53400B52CBC /* LaunchScreen.storyboard */; };
@@ -121,10 +123,12 @@
 		8E49F2411FADAA6B00C0723D /* Seafood.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Seafood.plist; sourceTree = "<group>"; };
 		8E49F2431FADACE300C0723D /* SeafoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeafoodModel.swift; sourceTree = "<group>"; };
 		8E49F2451FADB37200C0723D /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		8E5358AC1FC01E65009B94F5 /* UIDevice-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice-extension.swift"; sourceTree = "<group>"; };
 		8E605E501FAF0F7A002B8820 /* fall.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fall.plist; sourceTree = "<group>"; };
 		8E605E521FAF1125002B8820 /* FallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallModel.swift; sourceTree = "<group>"; };
 		8E8B0FDF1FAB1B150099AE0F /* HorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLayout.swift; sourceTree = "<group>"; };
 		8EACBFDF1FA57ED10095797A /* String-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-extension.swift"; sourceTree = "<group>"; };
+		8EC0108A1FBFCCF000732CD9 /* PushAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnim.swift; sourceTree = "<group>"; };
 		8EC63C661F94D53400B52CBC /* ThirdWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC63C6E1F94D53400B52CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EC63C701F94D53400B52CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -312,6 +316,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8EC010891FBFCCD000732CD9 /* anim */ = {
+			isa = PBXGroup;
+			children = (
+				8EC0108A1FBFCCF000732CD9 /* PushAnim.swift */,
+			);
+			path = anim;
+			sourceTree = "<group>";
+		};
 		8EC63C5D1F94D53400B52CBC = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +463,7 @@
 				8EDE0C801F9C958900B0610A /* UIColor-extension.swift */,
 				8EDE0C7E1F9C94CF00B0610A /* ThirdWeek.swift */,
 				8EACBFDF1FA57ED10095797A /* String-extension.swift */,
+				8E5358AC1FC01E65009B94F5 /* UIDevice-extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -493,6 +506,7 @@
 		8ECF08CD1FA9D0A600E8A425 /* demo4 */ = {
 			isa = PBXGroup;
 			children = (
+				8EC010891FBFCCD000732CD9 /* anim */,
 				8E4794AF1FB2B09900ABD60E /* View */,
 				8E49F2211FAC5B6100C0723D /* Other */,
 				8ECF08D61FA9D18700E8A425 /* Controller */,
@@ -698,10 +712,12 @@
 				8E49F2341FAD6B3300C0723D /* FallLayout.swift in Sources */,
 				8EDE0C7F1F9C94CF00B0610A /* ThirdWeek.swift in Sources */,
 				8ECF08DE1FAAAEA100E8A425 /* CollectionViewCell.swift in Sources */,
+				8EC0108B1FBFCCF000732CD9 /* PushAnim.swift in Sources */,
 				8E4794B21FB2B0BB00ABD60E /* TransitionCell.swift in Sources */,
 				8EC63CD21F94D58300B52CBC /* HomeworkModel.swift in Sources */,
 				8EC63CD31F94D58C00B52CBC /* Demo0Controller.swift in Sources */,
 				8ECF08D81FA9D18700E8A425 /* Demo4Controller.swift in Sources */,
+				8E5358AD1FC01E65009B94F5 /* UIDevice-extension.swift in Sources */,
 				8EC63CCE1F94D57600B52CBC /* MainViewController.swift in Sources */,
 				8E49F2461FADB37200C0723D /* ContentModel.swift in Sources */,
 				8E49F2371FAD6B8100C0723D /* FallCell.swift in Sources */,

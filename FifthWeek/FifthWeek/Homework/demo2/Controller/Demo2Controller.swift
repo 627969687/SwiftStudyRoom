@@ -32,7 +32,7 @@ extension Demo2Controller {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         
-        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
         
         let avControl = AVPlayerViewController()
         avControl.player = player

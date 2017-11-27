@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>project</key>
+		<string>Project 01 - 过山车</string>
+	</dict>
+	<dict>
+		<key>project</key>
+		<string>Project 02 - tableview折叠cell</string>
+	</dict>
+</array>
+</plist>

@@ -10,10 +10,17 @@ import UIKit
 
 fileprivate let ID = "cell"
 class Demo4Controller: UICollectionViewController {
+    
+    var selectedCell:TransitionCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.delegate = self
     }
     
     init() {
@@ -32,10 +39,12 @@ class Demo4Controller: UICollectionViewController {
 
 extension Demo4Controller {
     fileprivate func setupUI() {
+        collectionView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         collectionView?.register(UINib(nibName: "TransitionCell", bundle: nil), forCellWithReuseIdentifier: ID)
     }
 }
 
+// MARK: - collectionview delegate
 extension Demo4Controller {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
@@ -48,10 +57,21 @@ extension Demo4Controller {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(indexPath.item)
         let control = TransitionController()
         control.image = UIImage(named: String(format: "transition%d.jpg", indexPath.item + 1))!
+        selectedCell = collectionView.cellForItem(at: indexPath) as! TransitionCell
         navigationController?.pushViewController(control, animated: true)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+// 自定义转场动画必须实现的代理
+extension Demo4Controller:UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            return PushAnim()
+        }
+        return nil
     }
 }
 

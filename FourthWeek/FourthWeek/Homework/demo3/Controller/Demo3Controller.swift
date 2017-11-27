@@ -10,7 +10,6 @@ import UIKit
 
 class Demo3Controller: UIViewController {
     let contentV = UIImageView(image: #imageLiteral(resourceName: "twitter"))
-    
     // 遮罩
     lazy var maskLayer: CALayer = {
         let temp = CALayer()

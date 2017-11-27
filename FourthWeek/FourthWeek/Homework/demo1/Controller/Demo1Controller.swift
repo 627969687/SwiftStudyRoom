@@ -63,7 +63,6 @@ extension Demo1Controller {
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.35, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
             self.eyeAnimation()
             self.mouthAnimation()
-            self.view.layoutIfNeeded()
         }) { (result) in
             self.msgLabel.isHidden = false
         }
